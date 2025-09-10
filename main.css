@@ -32,9 +32,20 @@ body {
 .progress {
     height: 100%;
     width: 0%;
+    position: relative;
     background: #388e3c;
     border-radius: 8px;
-    transition: width 0.3s;
+    transition: width 0.8s;
+}
+
+.progress-percent {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 0.9em;
+    font-weight: bold;
 }
 
 .stats {
