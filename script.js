@@ -47,13 +47,13 @@ function updateUI() {
     percentLabel.textContent = percent > 0 ? `${percent}%` : ''
 }
 
-clickBtn.addEventListener('click', () => {
+treeImg.addEventListener('click', () => {
     clickCount++
     // Advance stage if threshold reached
     if (stage < stageThresholds.length && clickCount >= stageThresholds[stage]) {
         stage++
         if (stage === stageImages.length - 1) {
-            clickBtn.disabled = true
+            treeImg.style.cursor = 'default'
         }
     }
     updateUI()
