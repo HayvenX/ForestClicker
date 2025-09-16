@@ -19,7 +19,7 @@ const stageMessages = [
     "The tree is growing! Keep clicking!",
     "The tree is getting bigger! Keep going!",
     "The tree is half-grown! Almost there!",
-    "The tree is fully grown! Great job!"
+    "The tree is fully grown and going to your forest! Great job!"
 ]
 
 const stageSizes = [40, 60, 100, 130, 250]
@@ -45,6 +45,13 @@ function updateUI() {
 
     const percentLabel = document.querySelector('.progress-percent')
     percentLabel.textContent = percent > 0 ? `${percent}%` : ''
+
+    if (stage === stageImages.length - 1) {
+        clickBtn.textContent = "Plant new tree"
+    } 
+    else {
+        clickBtn.textContent = "Raise tree later"
+    }
 }
 
 treeImg.addEventListener('click', () => {
