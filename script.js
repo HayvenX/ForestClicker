@@ -66,4 +66,35 @@ treeImg.addEventListener('click', () => {
     updateUI()
 })
 
+const menuBtn = document.getElementById('menuBtn')
+const sideMenu = document.getElementById('sideMenu')
+const closeMenuBtn = document.getElementById('closeMenuBtn')
+
+menuBtn.addEventListener('click', () => {
+    sideMenu.classList.add('show')
+    menuBtn.style.display = 'none'
+})
+
+closeMenuBtn.addEventListener('click', () => {
+    sideMenu.classList.remove('show')
+    menuBtn.style.display = 'flex'
+})
+
+const menuItems = document.querySelectorAll('.menu-item')
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        sideMenu.classList.remove('show')
+        menuBtn.style.display = 'flex'
+    })
+})
+
+document.addEventListener('click', (e) => {
+    if (!sideMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+        if (sideMenu.classList.contains('show')) {
+            sideMenu.classList.remove('show')
+            menuBtn.style.display = 'flex'
+        }
+    }
+})
+
 updateUI()
