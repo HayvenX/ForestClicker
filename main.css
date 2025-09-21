@@ -94,6 +94,44 @@ body {
     background: #2e7031;
 }
 
+.coin-balance {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(34, 34, 34, 0.6);
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 32px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.coin-balance #coinIcon {
+    width: 50px;
+}
+
+.coin-balance span {
+    font-weight: bold;
+    margin-right: 6px;
+}
+
+.donate-btn {
+    margin-left: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background-color: #42bb48;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .container {
     width: 400px;
     height: 500px;

@@ -55,14 +55,19 @@ function updateUI() {
 }
 
 treeImg.addEventListener('click', () => {
+    if (stage === stageImages.length - 1) return;
+    
     clickCount++
-    // Advance stage if threshold reached
+    
     if (stage < stageThresholds.length && clickCount >= stageThresholds[stage]) {
         stage++
+
         if (stage === stageImages.length - 1) {
+            awardCoins(5)
             treeImg.style.cursor = 'default'
         }
     }
+
     updateUI()
 })
 
@@ -96,5 +101,17 @@ document.addEventListener('click', (e) => {
         }
     }
 })
+
+let coinBalance = 0
+
+function updateCoinBalance() {
+    const coinAmount = document.getElementById('coinAmount')
+    coinAmount.textContent = coinBalance
+}
+
+function awardCoins() {
+    coinBalance += 5
+    updateCoinBalance()
+}
 
 updateUI()
