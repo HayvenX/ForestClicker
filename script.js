@@ -29,9 +29,17 @@ function updateUI() {
     treeImg.src = stageImages[stage]
     treeImg.style.width = stageSizes[stage] + 'px'
     message.textContent = stageMessages[stage]
+    
     let prev = stage > 0 ? stageThresholds[stage - 1] : 0
-    let next = stageThresholds[stage] || stageThresholds[stageThresholds.length - 1]
-    clickCountSpan.textContent = `${clickCount - prev}/${next - prev}`
+    let next = stageThresholds[stage]
+    
+    if (stage === stageImages.length - 1) {
+        let totalRequiredClicks = stageThresholds[stageThresholds.length - 1]
+        clickCountSpan.textContent = `${totalRequiredClicks}/${totalRequiredClicks} Total done clicks`
+    } 
+    else {
+        clickCountSpan.textContent = `${clickCount - prev}/${next - prev} Clicks to next stage`
+    }
    
     const progress = document.querySelector('.progress')
     let percent
@@ -63,7 +71,7 @@ treeImg.addEventListener('click', () => {
         stage++
 
         if (stage === stageImages.length - 1) {
-            awardCoins(5)
+            awardCoins()
             treeImg.style.cursor = 'default'
         }
     }
